@@ -1,0 +1,129 @@
+
+
+::-webkit-input-placeholder { /* Chrome */
+    font-style: italic;
+    opacity: 0.4;
+    text-decoration: underline;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    font-style: italic;
+    opacity: 0.4;
+    text-decoration: underline;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-style: italic;
+    opacity: 0.4;
+    text-decoration: underline;
+  }
+  :-moz-placeholder { /* Firefox 4 - 18 */
+    font-style: italic;
+    opacity: 0.4;
+    text-decoration: underline;
+  }
+
+div.errors{
+  display: block;
+   text-align: center;
+   margin-top: 5px;
+   font-size: 1.2em;
+   font-weight: bold;
+}
+
+span.span-error{
+  display: block;
+}
+
+
+  input.ng-touched.ng-invalid{
+    border-color: red;
+   }
+
+   input.ng-touched.ng-valid{
+     border-color: green;
+   } 
+
+
+
+
+form{
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+
+input{
+    text-align: center;
+ font-weight:bold;
+}
+
+h2{
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+    color:rgb(58, 112, 192);
+    font-size: 1.5em;
+    margin-bottom: 25px;  
+    margin-top: 5px;
+    font-family: 'Times New Roman';
+}
+
+label{
+    width: 100%;
+    text-align: center;
+     font-size: 1em;
+     font-weight:bold;
+     color:rgb(100, 100, 100);
+     
+}
+
+
+div.btn-wrapper{
+  float:left;
+  width:100%;
+  margin-top:10px;
+  margin-bottom: 20px;
+ 
+}
+
+div.btn-wrapper button{
+  width: 45%;
+   margin-left: 10%;
+}
+
+
+
+select{
+  text-align: center;
+  text-align-last: center;
+  font-weight: bold;
+  font-size: 0.8em;
+  width:90%; 
+  margin-left:5%;
+}
+
+option{
+  text-align: center;
+} 
+
+button{
+  width: 100%;
+  
+}
+
+div.form-change-trainer{
+   border:1px solid rgb(109, 108, 108);;
+   margin-bottom: 10px; 
+   border-radius:10px;
+  background-color: rgba(196, 193, 193,0.2);
+}
+
+
+div.form-change-trainer button{
+  margin-top:10px;
+  margin-bottom:10px;
+  width:80%; 
+  margin-left:10%;
+}
+
+
+

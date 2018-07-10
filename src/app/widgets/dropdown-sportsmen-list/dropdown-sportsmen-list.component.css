@@ -1,0 +1,149 @@
+::-webkit-scrollbar {
+  width: 10px;
+ margin-right: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+ border-radius: 20px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+
+div.display-count-items{
+    width: auto;
+   margin-top: 5px;
+   padding: 0px;
+   }
+   
+   div.display-count-items p {
+     color:rgb(58, 112, 192);
+     font-weight: bold;
+   
+   }
+   
+   div.display-count-items p span{
+     color:rgb(220, 48, 48);
+     font-size: 1.2em;
+     padding-left: 3px;
+    
+   }
+   
+   
+   
+   div.main-select-sportsmen{
+     width: 100%;
+     padding-top: 10px;
+     
+   }
+   
+   .header-selector-sportsmen{
+     width: 60%;
+     margin-left: 20%;
+   }
+   
+   div.ul-wrapper{
+     max-height: 225px;
+      overflow-y: auto;
+    overflow-x:hidden;
+    margin-right: 10px;
+    margin-left: 5px;
+   }
+   
+   div.data-container-sportsmen{
+    border: 2px solid rgb(109, 108, 108);
+    background-color: rgba(196, 193, 193,0.2);
+    border-radius: 20px;
+   
+    max-height: 250px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+   
+    margin-top: 10px;
+   }
+   
+   div.data-container-sportsmen ul {
+   
+     margin-bottom: 0;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: auto;
+    position: relative;
+   }
+   
+   ul li{
+    min-width: 155px;
+    max-height: 24px;
+    margin-bottom: 5px;
+   }
+   
+   div.li-wrapper:hover{
+     background: rgba(56, 170, 232, 0.4);
+   
+   } 
+   
+   .select-item{
+     background: rgba(56, 170, 232, 0.4);
+   }
+   
+   div.li-wrapper{
+    border-radius: 10px;
+    padding-left: 25px;
+   }
+   
+   
+   li input[type='checkbox']{
+     display: block;
+     float: right;
+     margin-top:5.5px;
+     margin-right: 15px;
+   }
+   
+   li button{
+   padding: 0%;
+   }
+   
+   .btn-sportsmen-selector{
+    width: 100%;
+    border-radius: 8px ;
+    background-color: rgba(196, 193, 193,0.2);
+    outline: none;
+
+    border:1px solid  rgb(109, 108, 108);
+   }
+   
+   .selector-icon{
+     float: right;
+     top: 3px !important;
+     position: relative;
+     
+   }
+
+div.no-data{
+     width: 100%;
+ }
+
+div.no-data p {
+     margin-bottom: 0px;
+     width: 100%;
+     text-align: center;
+}
+
+   
+button{
+  width: 100%;
+}

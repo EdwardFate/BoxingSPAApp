@@ -1,0 +1,42 @@
+<div class="main-select-sportsmen">
+
+  <div class="header-selector-sportsmen">
+
+    <button class="btn-sportsmen-selector" click-stop-propagation (click)="clickSelectSportsman()">Список спортсменов
+      <span class="oi oi-chevron-bottom selector-icon" id="arrow-select-bottom" [style.display]="isArrowDown?'inline-block':'none'"></span>
+      <span class="oi oi-chevron-top selector-icon" id="arrow-select-top" [style.display]="isArrowDown?'none':'inline-block'"></span>
+    </button>
+
+  </div>
+
+
+
+  <div class="data-container-sportsmen" id="data-sportsmen" [@slideInOut]="animationState">
+    <div class="ul-wrapper">
+      <ul *ngIf="dataSportsmen!=null && dataSportsmen!=undefined && dataSportsmen.length>0">
+
+        <div class="li-wrapper" (click)="onClickSelectedItem($event,i)" [class.select-item]="isSelectedItems[i]" *ngFor="let sportsman of dataSportsmen; let i = index;">
+          <li [value]="i"> {{sportsman.Name + " " +sportsman.Surname}}
+            <input type="checkbox" [checked]="isSelectedItems[i]">
+          </li>
+        </div>
+
+        <li>
+          <button class="btn btn-outline-danger" (click)="removeSportsman()">Удалить</button>
+        </li>
+
+      </ul>
+      <div class="no-data" *ngIf="dataSportsmen==null || dataSportsmen == undefined || dataSportsmen.length <= 0">
+        <p>Элементов не обнаруженно!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-count-items">
+    <p *ngIf="getKeysOutSelectedSportsmen().length>0" [style.text-align]="animationState==='out'?'center':'left'">
+      Выбранно спортсменов:
+      <span> {{getKeysOutSelectedSportsmen().length}}</span>
+    </p>
+  </div>
+
+</div>

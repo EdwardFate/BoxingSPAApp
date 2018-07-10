@@ -1,0 +1,69 @@
+<form [formGroup]="trainerRegForm" (submit)="onSubmit()" class="custom-form-view">
+  <h2>Регистрация тренера</h2>
+  <div class="form-group">
+    <label for="nameTr">Имя:</label>
+    <input class="form-control form-control-sm" type="text" id="nameTr" formControlName="nameTrAng" placeholder="Введите Имя..."
+      [(ngModel)]="trainerRegModel.Name" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerRegForm.controls['nameTrAng'].invalid && trainerRegForm.controls['nameTrAng'].touched">
+      <span class="span-error" *ngFor="let error of trainerRegForm.controls['nameTrAng'].errors | keys">
+        {{trainerRegForm.controls['nameTrAng'].errors[error]}}
+      </span>
+      <span *ngIf="trainerRegForm?.controls['nameTrAng']?.errors?.maxLength">Максимально количество символов: 32</span>
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="surnameTr">Фамилия:</label>
+    <input class="form-control form-control-sm" type="text" id="surnameTr" formControlName="surnameTrAng" placeholder="Введите Фамилию..."
+      [(ngModel)]="trainerRegModel.Surname" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerRegForm.controls['surnameTrAng'].invalid && trainerRegForm.controls['surnameTrAng'].touched">
+      <span class="span-error" *ngFor="let error of trainerRegForm.controls['surnameTrAng'].errors | keys">
+        {{trainerRegForm.controls['surnameTrAng'].errors[error]}}
+      </span>
+      <span class="span-error" *ngIf="trainerRegForm?.controls['surnameTrAng']?.errors?.maxLength">Максимально количество символов: 32</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="emailTr">Email:</label>
+    <input class="form-control form-control-sm" type="email" id="emailTr" formControlName="emailTrAng" placeholder="Введите Email..."
+      [(ngModel)]="trainerRegModel.Email" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerRegForm.controls['emailTrAng'].invalid && trainerRegForm.controls['emailTrAng'].touched">
+      <span class="span-error" *ngIf="trainerRegForm?.controls['emailTrAng']?.errors?.email">Некорректный Email адресс!</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="passwordTr">Пароль:</label>
+    <input class="form-control form-control-sm" type="password" id="passwordTr" formControlName="passwordTrAng" placeholder="Введите Пароль..."
+      [(ngModel)]="trainerRegModel.Password" (change)="onChange()" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerRegForm.controls['passwordTrAng'].invalid && trainerRegForm.controls['passwordTrAng'].touched">
+      <span class="span-error" *ngFor="let error of trainerRegForm.controls['passwordTrAng'].errors | keys">
+        {{trainerRegForm.controls['passwordTrAng'].errors[error]}}
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="passworConfirmdTr">Подтверждение Пароля:</label>
+    <input class="form-control form-control-sm" type="password" id="passwordConfirmTr" formControlName="passwordConfirmTrAng"
+      placeholder="Подтвердите Пароль..." (change)="onChange()" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerRegForm.controls['passwordConfirmTrAng'].invalid && trainerRegForm.controls['passwordConfirmTrAng'].touched">
+      <span class="span-error" *ngIf="trainerRegForm?.controls['passwordConfirmTrAng']?.errors?.notEquivalent">Пароли не совпадают!</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="selectRoleTr">Уровень прав тренера:</label>
+    <select class="custom-select custom-select-sm" id="selectRoleTr" formControlName="selectRoleTrAng" [(ngModel)]="trainerRegModel.Role">
+      <option *ngFor="let role of keyValuesRoles" [value]="role.Id">{{role.Name}}</option>
+    </select>
+  </div>
+
+  <button class="btn btn-primary btn-sm" type="submit" [disabled]="trainerRegForm.invalid">Регистрация</button>
+</form>

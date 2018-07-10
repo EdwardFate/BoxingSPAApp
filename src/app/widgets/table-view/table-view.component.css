@@ -1,0 +1,124 @@
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    
+}
+
+/* Track */
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+   border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+
+.table-column{
+    max-height: 500px;
+    display: flex;
+    padding-left: 0px;  
+    padding-right: 2px;  
+}
+
+
+
+
+tr.table-wrapper:hover{
+    background: rgba(56, 170, 232, 0.4);
+}
+
+
+
+
+table{
+    display: block;
+    width: 98%;
+    
+}
+
+tbody{
+    display: block;
+    float: left;
+
+    
+    max-height: 400px;
+   
+    overflow-y: scroll;
+    width: 101.2%;
+    padding-right: 5px;
+
+ 
+   
+   
+}
+
+tbody.set-border-bottom{
+    border-bottom: 4px solid #888;
+}
+
+
+
+thead{
+    display: block;   
+    border-top: 4px solid #888;
+}
+
+tr{
+display: block;
+float: left;
+padding: 0;
+margin: 0;
+width: 100%;
+min-height: 35px;
+}
+
+td input[type="checkbox"]{
+    margin-top: 11px;
+}
+
+div.total-elements{
+    color:#888;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 3px;
+    
+}
+
+div.total-elements p {
+ text-align: center;
+}
+
+div.total-elements p span{
+    color:rgb(58, 112, 192);
+    font-weight: bold;
+    font-size: 1.2em;
+  
+}
+
+
+
+
+tr.table-row-selected{
+    background: rgba(56, 170, 232, 0.4);
+}
+
+div.table-buttons{
+
+    padding-left: 15%;
+    width: 100%;
+}
+
+div.table-buttons button{
+    margin-left: 5%;
+    width: 20%;
+    margin-top: 0%;
+    margin-bottom: 3.2%;
+    overflow: hidden;
+}

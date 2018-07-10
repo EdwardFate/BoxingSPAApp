@@ -1,0 +1,42 @@
+<form [formGroup]="sportsmanRegForm" (submit)="onSubmit()" class="custom-form-view">
+    <h2>Регистрация спортсмена</h2>
+
+    <div class="form-group">
+      <label for="nameSp">Имя:</label>
+      <input class="form-control form-control-sm" type="text" id="nameSp" formControlName="nameSpAng" placeholder="Введите Имя..."
+        [(ngModel)]="sportsmanRegModel.Name" />
+  
+      <div class="alert alert-danger errors" *ngIf="sportsmanRegForm.controls['nameSpAng'].invalid && sportsmanRegForm.controls['nameSpAng'].touched">
+        <span class="span-error" *ngFor="let error of sportsmanRegForm.controls['nameSpAng'].errors | keys">
+          {{sportsmanRegForm.controls['nameSpAng'].errors[error]}}
+        </span>
+        <span *ngIf="sportsmanRegForm?.controls['nameSpAng']?.errors?.maxLength">Максимально количество символов: 32</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="surnameSp">Фамилия:</label>
+      <input class="form-control form-control-sm" type="text" id="surnameSp" formControlName="surnameSpAng" placeholder="Введите Фамилию..."
+        [(ngModel)]="sportsmanRegModel.Surname" />
+  
+      <div class="alert alert-danger errors" *ngIf="sportsmanRegForm.controls['surnameSpAng'].invalid && sportsmanRegForm.controls['surnameSpAng'].touched">
+        <span class="span-error" *ngFor="let error of sportsmanRegForm.controls['surnameSpAng'].errors | keys">
+          {{sportsmanRegForm.controls['surnameSpAng'].errors[error]}}
+        </span>
+        <span class="span-error" *ngIf="sportsmanRegForm?.controls['surnameSpAng']?.errors?.maxLength">Максимально количество символов: 32</span>
+      </div>
+    </div>
+  
+
+    <div class="form-group">
+       <label for="selectTrainerSp">Выбор тренера:</label>
+       <select class="custom-select custom-select-sm" id="selectTrainerSp" formControlName="selectTrainerSpAng" [(ngModel)]="sportsmanRegModel.TrainerInfo">
+         <option value="null" [selected]="true" >Тренер не выбран</option>
+         <option *ngFor="let tr of trainersList; let i = index;" [ngValue]="tr">{{tr.Name + " " + tr.Surname}}</option>   
+       </select>
+    </div>
+  
+ 
+  
+    <button class="btn btn-primary btn-sm" type="submit" [disabled]="sportsmanRegForm.invalid">Регистрация</button>
+  </form>

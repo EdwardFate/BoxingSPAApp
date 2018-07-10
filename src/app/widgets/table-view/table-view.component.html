@@ -1,0 +1,29 @@
+<!-- <div class="table-responsive table-column">  -->
+
+<table class="table table-sm table-bordered">
+
+  <thead>
+    <tr>
+        <th style="width: 5%;" class="custom-table-th">#</th>
+      <ng-container *ngTemplateOutlet="headNameTemplate"></ng-container>
+    </tr> 
+  </thead>
+
+  <tbody [class.set-border-bottom]="bodyItems.length <= 9 ? false : true">
+    <tr *ngFor="let bodyItem of itemsToDisplayBodyTable; let i = index;" class="table-wrapper" (click)="onClickSelectedItemTable($event, i)" [class.table-row-selected]="selectedItemIndex === i ? true : false">
+        <td style="width: 5%;" class="custom-table-td">
+            <input type="checkbox" [checked]="selectedItemIndex === i ? true : false"/>
+        </td>
+      <ng-container *ngTemplateOutlet="bodyNameTemplate; context: bodyItem"></ng-container>
+    </tr>
+  </tbody>
+
+</table>
+<div class="total-elements">
+  <p>Всего элементов: <span>{{bodyItems.length}}</span></p>
+</div>
+<div class="table-buttons">
+  <button type="button" class="btn btn-outline-success btn-sm" (click)="AddData()">Добавить</button>
+  <button type="button" class="btn btn-outline-primary btn-sm" (click)="ChangeData()">Изменить</button>
+  <button type="button" class="btn btn-outline-danger btn-sm" (click)="DeleteData()">Удалить</button>
+</div>

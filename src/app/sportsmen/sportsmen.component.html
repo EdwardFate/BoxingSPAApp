@@ -1,0 +1,52 @@
+<div class="row bodyRow">
+    <div class="col-lg-8" style="padding-left: 5px; padding-right: 5px;">
+        <app-table-view [bodyItems]="sportsmen" [headNameTemplate]="theadTableTemplate" [bodyNameTemplate]="tbodyTableTemplate" (onAddDate)="addEvent($event)"
+            (onChangeData)="changeEvent($event)" (onRemoveData)="removeEvent($event)">
+
+            <ng-template #theadTableTemplate>
+                <th style="width: 30%;" class="custom-table-th">Имя</th>
+                <th style="width: 30%;" class="custom-table-th">Фамилия</th>
+                <th style="width: 35%;" class="custom-table-th">Тренер</th>
+            </ng-template>
+
+
+            <ng-template #tbodyTableTemplate let-sportsman>
+
+                <td style="width: 30%;" class="custom-table-td">
+                    <span class="custom-table-td-span">{{sportsman.Name}}</span>
+                </td>
+                <td style="width: 30%;" class="custom-table-td">
+                    <span class="custom-table-td-span">{{sportsman.Surname}}</span>
+                </td>
+                <td style="width: 35%;" class="custom-table-td" *ngIf="sportsman.Trainer !== null && sportsman.Trainer !== undefined">
+                    <span class="custom-table-td-span">{{sportsman.Trainer.Name + " " + sportsman.Trainer.Surname}}</span>
+                </td>
+
+                <td style="width: 35%;" class="custom-table-td" *ngIf="sportsman.Trainer === null || sportsman.Trainer === undefined">
+                    <span class="custom-table-td-span">Нет тренера</span>
+                </td>
+
+            </ng-template>
+        </app-table-view>
+
+    </div>
+
+
+
+    <div class="col-lg-4 form-column">
+
+        <app-sportsman-registration *ngIf="isShowSpAdd" [trainersList]="trainersInfo" (onSportsmanRegistration)="AddSportsman($event)">
+
+        </app-sportsman-registration>
+
+        <app-sportsman-change *ngIf="isShowSpChange" [sportsman]="changedSportsman" [allTrainerList]="trainersInfo" (onChangeSportsman)="changeSportsman($event)">
+        </app-sportsman-change>
+
+        <div *ngIf="isShowSpAdd == false && isShowSpChange == false" class="hello-wrapper">
+            <p class="hello-text">
+                Здравствуйте, здесь вы можете изменять, удалять данные спортсменов, а также зарегистрировать нового спортсмена.
+            </p>
+        </div>
+
+    </div>
+</div>

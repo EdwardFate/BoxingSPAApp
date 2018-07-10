@@ -1,0 +1,50 @@
+<form [formGroup]="sportsmanChanForm"  class="custom-form-view">
+  <h2>Редактирования данных спортсмена</h2>
+
+  <div class="form-group">
+    <label for="nameSpChan">Имя:</label>
+    <input class="form-control form-control-sm" type="text" id="nameSpChan" formControlName="nameSpChanAng" placeholder="Введите Имя..."
+      [(ngModel)]="sportsmanChanged.Name" />
+
+    <div class="alert alert-danger errors" *ngIf="sportsmanChanForm.controls['nameSpChanAng'].invalid && sportsmanChanForm.controls['nameSpChanAng'].touched">
+      <span class="span-error" *ngFor="let error of sportsmanChanForm.controls['nameSpChanAng'].errors | keys">
+        {{sportsmanChanForm.controls['nameSpChanAng'].errors[error]}}
+      </span>
+      <span *ngIf="sportsmanChanForm?.controls['nameSpChanAng']?.errors?.maxLength">Максимально количество символов: 32</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="surnameSpChan">Фамилия:</label>
+    <input class="form-control form-control-sm" type="text" id="surnameSpChan" formControlName="surnameSpChanAng" placeholder="Введите Фамилию..."
+      [(ngModel)]="sportsmanChanged.Surname" />
+
+    <div class="alert alert-danger errors" *ngIf="sportsmanChanForm.controls['surnameSpChanAng'].invalid && sportsmanChanForm.controls['surnameSpChanAng'].touched">
+      <span class="span-error" *ngFor="let error of sportsmanChanForm.controls['surnameSpChanAng'].errors | keys">
+        {{sportsmanChanForm.controls['surnameSpChanAng'].errors[error]}}
+      </span>
+      <span class="span-error" *ngIf="sportsmanChanForm?.controls['surnameSpChanAng']?.errors?.maxLength">Максимально количество символов: 32</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="trainerSpChan">Тренер спортсмена: </label>
+    <input class="form-control form-control-sm" type="text" id="trainerSpChan" formControlName="trainerSpChanAng" 
+     [(ngModel)]="displayCurrentTrainer === undefined ? 'Тренер отсутствует': displayCurrentTrainer" />
+    
+   <button class="btn btn-sm btn-outline-warning" style="margin-left:0; width:45%; margin-top:10px;" (click)="changeTrainer()">Изменить тренера</button>
+   <button class="btn btn-sm btn-outline-danger" style="width:45%; margin-left:10%; margin-top:10px;" (click)="removeTrainer()">Удалить тренера</button>
+ 
+  </div>
+
+ <div class="form-group form-change-trainer" [style.display]="isDisplayChangeTrainer? 'block': 'none'">
+    <label for="selectNewTrainerSpChan" style="margin-top:5px;">Выберите тренера для спортсмена: </label>
+    <select id="selectNewTrainerSpChan" class="custom-select custom-select-sm" formControlName="selectNewTrainerSpChanAng" [(ngModel)]="newTrainer" >
+      <option value="" [selected]="true">Тренер не будет установлен</option>
+      <option *ngFor="let tr of allTrainerList; let i = index" [ngValue]="tr">{{tr.Name + ' ' + tr.Surname}}</option>
+    </select>
+    <button class="btn btn-sm btn-outline-success" (click)="selectNewTrainer()">Ok</button>
+ </div>
+
+  <button class="btn btn-primary btn-sm" type="submit" [disabled]="sportsmanChanForm.invalid" (click)="changeSportsman()">Обновить данные</button>
+</form>

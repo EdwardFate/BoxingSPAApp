@@ -1,0 +1,56 @@
+<form [formGroup]="trainerChangeForm" (submit)="onSubmit()" class="custom-form-view">
+  <h2>Обновление данных тренера</h2>
+  <div class="form-group">
+    <label for="nameTrChanId">Имя:</label>
+    <input class="form-control form-control-sm" type="text" id="nameTrChanId" formControlName="nameTrChan" placeholder="Введите Имя..."
+      [(ngModel)]="trainerChanged.Name" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerChangeForm.controls['nameTrChan'].invalid && trainerChangeForm.controls['nameTrChan'].touched">
+      <span class="span-error" *ngFor="let error of trainerChangeForm.controls['nameTrChan'].errors | keys">
+        {{trainerChangeForm.controls['nameTrChan'].errors[error]}}
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="surnameTrChanId">Фамилия:</label>
+    <input class="form-control form-control-sm" type="text" id="surnameTrChanId" formControlName="surnameTrChan" placeholder="Введите фамилию...."
+      [(ngModel)]="trainerChanged.Surname" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerChangeForm.controls['surnameTrChan'].invalid && trainerChangeForm.controls['surnameTrChan'].touched">
+      <span class="span-error" *ngFor="let error of trainerChangeForm.controls['surnameTrChan'].errors | keys">
+        {{trainerChangeForm.controls['surnameTrChan'].errors[error]}}
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="emailTrChanId">Email:</label>
+    <input class="form-control form-control-sm" type="email" id="emailTrChanId" formControlName="emailTrChan" placeholder="Введите Email адрес..."
+      [(ngModel)]="trainerChanged.Email" />
+
+    <div class="alert alert-danger errors" *ngIf="trainerChangeForm.controls['emailTrChan'].invalid && trainerChangeForm.controls['emailTrChan'].touched">
+      <span class="span-error" *ngIf="trainerChangeForm?.controls['emailTrChan']?.errors?.email">Некорректный Email</span>
+    </div>
+  </div>
+
+
+  <div class="form-group" style="height: auto;">
+    <dropdown-sportsmen-list  [dataSportsmen]="trainerChanged.Sportsmen" 
+    (onRemoveSportsmen)="removeSportsmen($event)">
+
+    </dropdown-sportsmen-list>
+
+
+  </div>
+
+
+<!-- 
+  <div class="block-button" [style.display]="isOpenMenu?'none':'block'">
+      
+  </div> -->
+
+  
+    <button class="btn btn-primary btn-sm" (click)="ChangedDataTrainer()" [disabled]="trainerChangeForm.invalid">Обновить Данные</button>
+ 
+</form>
